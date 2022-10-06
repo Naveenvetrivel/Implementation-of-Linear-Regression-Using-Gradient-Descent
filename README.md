@@ -8,6 +8,7 @@ To write a program to predict the profit of a city using the linear regression m
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
+~~~
 1.Import the standard libraries in python required for finding Gradient Design.
 2.Read the dataset file and check any null value using .isnull() method.
 3.Declare the default variables with respective values for linear regression.
@@ -15,7 +16,7 @@ To write a program to predict the profit of a city using the linear regression m
 5.Predict the value of y.
 6.Plot the graph respect to hours and scores using .scatterplot() method for Linear Regression.
 7.Plot the graph respect to loss and iterations using .plot() method for Gradient Descent.
-
+~~~
 ## Program:
 ```
 /*
