@@ -24,99 +24,94 @@ Program to implement the linear regression using gradient descent.
 Developed by: NAVEENKUMAR V
 RegisterNumber: 212221230068 
 */
+#import files
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
-from scipy import optimize
 
-data=np.loadtxt("ex2data1.txt",delimiter=',')
-X=data[:,[0,1]]
-y=data[:,2]
+df=pd.read_csv("ex1.txt",header=None)
 
-X[:5]
+plt.scatter(df[0],df[1])
+plt.xticks(np.arange(5,30,step=5))
+plt.yticks(np.arange(-5,30,step=5))
+plt.xlabel("Population of City (10,000s)")
+plt.ylabel("Profit($10,000)")
+plt.title("Profit Prediction")
 
-y[:5]
-
-plt.figure()
-plt.scatter(X[y==1][:,0],X[y==1][:,1],label="Admitted")
-plt.scatter(X[y==0][:,0],X[y==0][:,1],label="Not Admitted")
-plt.xlabel("Exam 1 score")
-plt.ylabel("Exam 2 score")
-plt.legend()
-plt.show()
-
-def sigmoid(z):
-    return 1/(1+np.exp(-z))
-
-plt.plot()
-X_plot=np.linspace(-10,10,100)
-plt.plot(X_plot,sigmoid(X_plot))
-plt.show()
-
-def costFunction (theta,X,y):
-    h=sigmoid(np.dot(X,theta))
-    J=-(np.dot(y,np.log(h))+np.dot(1-y,np.log(1-h)))/X.shape[0]
-    grad=np.dot(X.T,h-y)/X.shape[0]
-    return J,grad
-
-X_train=np.hstack((np.ones((X.shape[0],1)),X))
-theta=np.array([0,0,0])
-J,grad=costFunction(theta,X_train,y)
-print(J)
-print(grad)
-
-def cost (theta,X,y):
-    h=sigmoid(np.dot(X,theta))
-    J=-(np.dot(y,np.log(h))+np.dot(1-y,np.log(1-h)))/X.shape[0]
-    return J
-
-def gradient (theta,X,y):
-    h=sigmoid(np.dot(X,theta))
-    grad=np.dot(X.T,h-y)/X.shape[0]
-    return grad
-
-X_train=np.hstack((np.ones((X.shape[0],1)),X))
-theta=np.array([0,0,0])
-res=optimize.minimize(fun=cost,x0=theta,args=(X_train,y),method='Newton-CG',jac=gradient)
-print(res.fun)
-print(res.x)
-
-def plotDecisionBoundary(theta,X,y):
-    x_min,x_max=X[:,0].min()-1,X[:,0].max()+1
-    y_min,y_max=X[:,1].min()-1,X[:,1].max()+1
-    xx,yy=np.meshgrid(np.arange(x_min,x_max,0.1),np.arange(y_min,y_max,0.1))
-    X_plot=np.c_[xx.ravel(),yy.ravel()]
-    X_plot=np.hstack((np.ones((X_plot.shape[0],1)),X_plot))
-    y_plot=np.dot(X_plot,theta).reshape(xx.shape)
+"""
+Take in a np array X,y,theta and generate the cost function of using theta as parameter in a linear regression model
+"""
+def computeCost(X,y,theta):
+    m=len(y) #length of the training data
+    h=X.dot(theta) #hypothesis
+    square_err=(h-y)**2
     
-    plt.figure()
-    plt.scatter(X[y==1][:,0],X[y==1][:,1],label="Admitted")
-    plt.scatter(X[y==0][:,0],X[y==0][:,1],label="Not Admitted")
-    plt.contour(xx,yy,y_plot,levels=[0])
-    plt.xlabel("Exam 1 score")
-    plt.ylabel("Exam 2 score")
-    plt.legend()
-    plt.show()
+    return 1/(2*m)*np.sum(square_err) #returning J
 
-plotDecisionBoundary(res.x,X,y)
+df_n=df.values
+m=df_n[:,0].size
+X=np.append(np.ones((m,1)),df_n[:,0].reshape(m,1),axis=1)
+y=df_n[:,1].reshape(m,1)
+theta=np.zeros((2,1))
 
-prob=sigmoid(np.dot(np.array([1,45,85]),res.x))
-print(prob)
+computeCost(X,y,theta) #call the function
 
-def predict(theta,X):
-    X_train =np.hstack((np.ones((X.shape[0],1)),X))
-    prob=sigmoid(np.dot(X_train,theta))
-    return (prob>=0.5).astype(int)
-np.mean(predict(res.x,X)==y)
+"""
+Take in np array X,y and theta and update theta by taking num_iters gradient steps with learning rate of alpha 
+return theta and the list of the cost of theta during each iteration
+"""
+def gradientDescent(X,y,theta,alpha,num_iters):
+    m=len(y)
+    J_history=[]
+    
+    for i in range(num_iters):
+        predictions = X.dot(theta)
+        error = np.dot(X.transpose(),(predictions -y))
+        descent = alpha*(1/m )*error
+        theta-=descent
+        J_history.append(computeCost(X,y,theta))
+    return theta,J_history
+
+theta,J_history = gradientDescent(X,y,theta,0.01,1500)
+print("h(x)="+str(round(theta[0,0],2))+"+"+str(round(theta[1,0],2))+"x1")
+
+#Testing the implementation
+plt.plot(J_history)
+plt.xlabel("Iteration")
+plt.ylabel("$J(\Theta)$")
+plt.title("Cost function using Gradient Descent")
+
+plt.scatter(df[0],df[1])
+x_value=[x for x in range(25)]
+y_value=[y*theta[1]+theta[0]for y in x_value]
+plt.plot(x_value,y_value,color="purple")
+plt.xticks(np.arange(5,30,step=5))
+plt.yticks(np.arange(-5,30,step=5))
+plt.xlabel("Population of City (10,000s)")
+plt.ylabel("Profit($10,000)")
+plt.title("Profit Prediction")
+
+"""
+Takes in numpy array of x and theta and return the predicted value of y based on theta
+"""
+def predict(x,theta):
+    predictions = np.dot(theta.transpose(),x)
+    return predictions[0]
+
+predict1=predict(np.array([1,3.5]),theta)*10000
+print("For population = 35,000 , we predict a profit of $"+str(round(predict1,0)))
+
+predict2=predict(np.array([1,7]),theta)*10000
+print("For population = 70,000 , we predict a profit of $"+str(round(predict2,0)))
 ```
 
 ## Output:
-![image](https://user-images.githubusercontent.com/94165322/202892159-b879f3a4-f0a7-4ab0-b1c8-b9e340375204.png)
-![image](https://user-images.githubusercontent.com/94165322/202892163-df73046f-b2b8-4744-8dda-7258c4ec6ad4.png)
-![image](https://user-images.githubusercontent.com/94165322/202892166-3c5991f0-28ea-4f4a-b5e8-9876e4bf559f.png)
-![image](https://user-images.githubusercontent.com/94165322/202892171-765e79af-4d37-4eec-851a-d02d75d08572.png)
-![image](https://user-images.githubusercontent.com/94165322/202892176-1d63ccc3-8466-4024-bc7e-c4bbb547caa2.png)
-![image](https://user-images.githubusercontent.com/94165322/202892178-231ed872-7e37-46a8-a911-0353c81799ab.png)
-![image](https://user-images.githubusercontent.com/94165322/202892179-fed53d9c-aa67-4793-b2b1-b2ae75486eef.png)
+![image](https://user-images.githubusercontent.com/94165322/204446578-6edb1caa-be32-4307-bed8-0ddf73a9807a.png)
+![image](https://user-images.githubusercontent.com/94165322/204446607-2cd80143-0996-47b4-97bc-2069e3497a46.png)
+![image](https://user-images.githubusercontent.com/94165322/204446621-0d41847b-bb7e-4f2e-8f03-4e05baaa6eac.png)
+![image](https://user-images.githubusercontent.com/94165322/204446639-458bb8e5-3419-4caa-be63-f21bfc555c3a.png)
+![image](https://user-images.githubusercontent.com/94165322/204446665-0b6106a8-9b35-49dd-8bfe-78042979987b.png)
+![image](https://user-images.githubusercontent.com/94165322/204446676-ad655c1d-fc20-4b66-aa37-0807a9e4dcd0.png)
 
 
 
