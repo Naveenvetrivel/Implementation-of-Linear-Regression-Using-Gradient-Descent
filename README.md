@@ -106,7 +106,7 @@ print("For population = 70,000 , we predict a profit of $"+str(round(predict2,0)
 ```
 
 ## Output:
-![image](https://user-images.githubusercontent.com/94165322/204447330-a072ae73-8288-4d43-a114-92092ba27fb4.png)
+![image](https://user-images.githubusercontent.com/94165322/204447524-5942be89-8b12-4d36-83bf-caecb9518cf3.png)
 ![image](https://user-images.githubusercontent.com/94165322/204447344-93071fea-80b5-4343-9c43-bf3d36aef4e8.png)
 ![image](https://user-images.githubusercontent.com/94165322/204447360-93fe6882-b69a-4aa5-aaa7-8e3498548a15.png)
 ![image](https://user-images.githubusercontent.com/94165322/204447369-f8dd795f-692b-4a41-aa2f-65a8f2583436.png)
