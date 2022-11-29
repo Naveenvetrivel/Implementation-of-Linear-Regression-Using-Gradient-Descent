@@ -106,14 +106,15 @@ print("For population = 70,000 , we predict a profit of $"+str(round(predict2,0)
 ```
 
 ## Output:
-![image](https://user-images.githubusercontent.com/94165322/204447524-5942be89-8b12-4d36-83bf-caecb9518cf3.png)
-![image](https://user-images.githubusercontent.com/94165322/204447344-93071fea-80b5-4343-9c43-bf3d36aef4e8.png)
-![image](https://user-images.githubusercontent.com/94165322/204447360-93fe6882-b69a-4aa5-aaa7-8e3498548a15.png)
-![image](https://user-images.githubusercontent.com/94165322/204447369-f8dd795f-692b-4a41-aa2f-65a8f2583436.png)
-![image](https://user-images.githubusercontent.com/94165322/204447386-45fa2e46-56d1-446c-8407-164ec4d69c63.png)
-![image](https://user-images.githubusercontent.com/94165322/204447398-dd53ea4f-429d-4a42-b283-305d3290da00.png)
-![image](https://user-images.githubusercontent.com/94165322/204447407-25c75035-9dde-4cee-add9-4a446425c04d.png)
-
+![200654786-79b7b1fd-a01e-48e2-b0ec-51cf9c96cb37](https://user-images.githubusercontent.com/94165322/204447631-5f68d5e1-a0d0-428f-bff5-65f8de038f9a.png)
+![200654819-d7612b18-27b8-443d-b399-1c31ff117e66](https://user-images.githubusercontent.com/94165322/204447669-d0489c83-9f0b-4c59-9c27-217be7f5fc3b.png)
+![200654844-588c0140-55eb-4930-980a-133e89107110](https://user-images.githubusercontent.com/94165322/204447701-887e217b-d183-484a-8e87-21a44126a266.png)
+![200654895-d5f96d33-03a2-4463-968f-bb2e2dc5257e](https://user-images.githubusercontent.com/94165322/204447733-86cb3e46-211f-4da6-802b-75d964c98cee.png)
+![200654916-3603d8fc-d173-47d5-9bed-bd60d3ab9f76](https://user-images.githubusercontent.com/94165322/204447771-def11a98-4a31-401e-86ac-92a22f994ceb.png)
+![200654968-72094227-0b5d-45c4-96b6-d0f6e2d00bcb](https://user-images.githubusercontent.com/94165322/204447796-2f977785-d6d3-4ecd-863f-1419f74d8684.png)
+![200655020-e0daf4cb-f423-48f1-80c3-9e7a5a9a05b6](https://user-images.githubusercontent.com/94165322/204447834-5990fdb8-00b4-49cc-a3d7-63ff54231636.png)
+![200655059-b3b4c1a1-75f2-454f-9ad6-2cbdb6133e56](https://user-images.githubusercontent.com/94165322/204447858-f6bcf569-a6fa-407a-830b-0b3317dffad8.png)
+![200655083-191f6a1f-d0d1-43dd-873f-2aa8c8ffde61](https://user-images.githubusercontent.com/94165322/204447906-c24a0185-2b28-4f05-a387-8f258d4cab80.png)
 
 
 
