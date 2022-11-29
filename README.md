@@ -106,15 +106,14 @@ print("For population = 70,000 , we predict a profit of $"+str(round(predict2,0)
 ```
 
 ## Output:
-![image](https://user-images.githubusercontent.com/94165322/204447087-de7a86c6-8a80-428c-9808-c16500886e83.png)
-![image](https://user-images.githubusercontent.com/94165322/204446578-6edb1caa-be32-4307-bed8-0ddf73a9807a.png)
-![image](https://user-images.githubusercontent.com/94165322/204446607-2cd80143-0996-47b4-97bc-2069e3497a46.png)
-![image](https://user-images.githubusercontent.com/94165322/204447247-6109d855-ecc5-4c93-9a55-1205cc2e1605.png)
-
-![image](https://user-images.githubusercontent.com/94165322/204446621-0d41847b-bb7e-4f2e-8f03-4e05baaa6eac.png)
-![image](https://user-images.githubusercontent.com/94165322/204446639-458bb8e5-3419-4caa-be63-f21bfc555c3a.png)
-![image](https://user-images.githubusercontent.com/94165322/204446665-0b6106a8-9b35-49dd-8bfe-78042979987b.png)
-![image](https://user-images.githubusercontent.com/94165322/204446676-ad655c1d-fc20-4b66-aa37-0807a9e4dcd0.png)
+![image](https://user-images.githubusercontent.com/94165322/204447310-461c94e0-15c7-44ea-bed4-cc17658b2a74.png)
+![image](https://user-images.githubusercontent.com/94165322/204447330-a072ae73-8288-4d43-a114-92092ba27fb4.png)
+![image](https://user-images.githubusercontent.com/94165322/204447344-93071fea-80b5-4343-9c43-bf3d36aef4e8.png)
+![image](https://user-images.githubusercontent.com/94165322/204447360-93fe6882-b69a-4aa5-aaa7-8e3498548a15.png)
+![image](https://user-images.githubusercontent.com/94165322/204447369-f8dd795f-692b-4a41-aa2f-65a8f2583436.png)
+![image](https://user-images.githubusercontent.com/94165322/204447386-45fa2e46-56d1-446c-8407-164ec4d69c63.png)
+![image](https://user-images.githubusercontent.com/94165322/204447398-dd53ea4f-429d-4a42-b283-305d3290da00.png)
+![image](https://user-images.githubusercontent.com/94165322/204447407-25c75035-9dde-4cee-add9-4a446425c04d.png)
 
 
 
